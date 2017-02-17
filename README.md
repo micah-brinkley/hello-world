@@ -1,2 +1,5 @@
 # hello-world
-Intro to Repo
+
+Hello Brave New World,
+
+Micah here, Software Systems Engineer and Coffee Lover.
