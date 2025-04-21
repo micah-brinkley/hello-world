@@ -34,7 +34,7 @@
                 ball.x += ball.vx;
                 ball.y += ball.vy;
                 ball.vy *= 0.99;
-                ball.vy += 0.25;
+                ball.vy += 0.10;
 
                 if (
                     ball.y + ball.vy > canvas.height - ball.radius ||
@@ -68,7 +68,7 @@
     <header>
         <h1>Welcome to Brinkley Basics</h1>        
     </header>
-    <canvas id="canvas" class="canvas" width="900" height="600"></canvas>
+    <canvas id="canvas" class="canvas" width="900" height="600" style="border:thin solid grey"></canvas>
     <footer>
         <p>Brinkley Basics &copy; 2023</p>
     </footer>
