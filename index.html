@@ -4,73 +4,113 @@
 <head>
     <meta charset="utf-8" />
     <title>Brinkley Basics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="css/main.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            const canvas = document.getElementById("canvas");
-            const ctx = canvas.getContext("2d");
-            let raf;
-
-            const ball = {
-                x: 100,
-                y: 100,
-                vx: 5,
-                vy: 2,
-                radius: 25,
-                color: "blue",
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-                    ctx.closePath();
-                    ctx.fillStyle = this.color;
-                    ctx.fill();
-                },
-            };
-
-            function draw() {
-                ctx.fillStyle = "rgb(255 255 255 / 30%)";
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                ball.draw();
-                ball.x += ball.vx;
-                ball.y += ball.vy;
-                ball.vy *= 0.99;
-                ball.vy += 0.10;
-
-                if (
-                    ball.y + ball.vy > canvas.height - ball.radius ||
-                    ball.y + ball.vy < ball.radius
-                ) {
-                    ball.vy = -ball.vy;
-                }
-                if (
-                    ball.x + ball.vx > canvas.width - ball.radius ||
-                    ball.x + ball.vx < ball.radius
-                ) {
-                    ball.vx = -ball.vx;
-                }
-
-                raf = window.requestAnimationFrame(draw);
-            }
-
-            canvas.addEventListener("mouseover", (e) => {
-                raf = window.requestAnimationFrame(draw);
-            });
-
-            canvas.addEventListener("mouseout", (e) => {
-                window.cancelAnimationFrame(raf);
-            });
-
-            ball.draw();
-        });
-    </script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="scripts/main.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Brinkley Basics</h1>        
-    </header>
-    <canvas id="canvas" class="canvas" width="900" height="600" style="border:thin solid grey"></canvas>
-    <footer>
-        <p>Brinkley Basics &copy; 2023</p>
-    </footer>
+
+    <div id="MainWrapper" class="container-fluid text-center main-wrapper">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <header>
+                    <h3><a class="navbar-brand" href="#" onclick="$('#v-pills-home-tab').click();">Micahputer</a></h3>
+                </header>
+            </div>
+        </nav>
+        <div class="row inner-wrapper">
+            <div class="col-2 nav-panel">
+                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
+                    <button class="nav-link" id="v-pills-billpay-tab" data-bs-toggle="pill" data-bs-target="#v-pills-billpay" type="button" role="tab" aria-controls="v-pills-billpay" aria-selected="false">BillPay</button>
+                    <button class="nav-link" id="v-pills-banking-tab" data-bs-toggle="pill" data-bs-target="#v-pills-banking" type="button" role="tab" aria-controls="v-pills-banking" aria-selected="false">Banking</button>
+                    <button class="nav-link" id="v-pills-games-tab" data-bs-toggle="pill" data-bs-target="#v-pills-games" type="button" role="tab" aria-controls="v-pills-games" aria-selected="false">Games</button>
+                    <button class="nav-link" id="v-pills-videos-tab" data-bs-toggle="pill" data-bs-target="#v-pills-videos" type="button" role="tab" aria-controls="v-pills-videos" aria-selected="false">Videos</button>
+                    <button class="nav-link" id="v-pills-canvas-tab" data-bs-toggle="pill" data-bs-target="#v-pills-canvas" type="button" role="tab" aria-controls="v-pills-canvas" aria-selected="false">Canvas</button>
+                </div>
+            </div>
+            <div class="col-10 display-panel">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+                        <div class="row">
+                            <div class="col-12 home-panel" height="700">Hello World, Micah here ...</div>
+                        </div>
+                        <div class="row">
+                            <!-- TODO: Add a custom introduction -->
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-billpay" role="tabpanel" aria-labelledby="v-pills-billpay-tab" tabindex="0">
+                        <div class="row"><iframe height="625" src="https://docs.google.com/spreadsheets/d/1S0w-aJbcKjNY5gr7Sk3kZ96YrHoBZ__XbKHIDtOc23s/edit?pli=1#gid=0" style="border:thin grey;"></iframe></div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-banking" role="tabpanel" aria-labelledby="v-pills-banking-tab" tabindex="0">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="list-group">
+                                    <div class="list-group-item list-group-item-primary" disabled>Banking</div>
+                                    <div class="list-group-item list-group-item-action discover-bank-panel"><a href="https://card.discover.com/web/achome/homepage" target="_blank">Discover Banking</a></div>
+                                    <div class="list-group-item list-group-item-action pnc-bank-panel"><a href="https://www.pnc.com/en/personal-banking.html" target="_blank">PNC Banking</a></div>
+                                    <div class="list-group-item list-group-item-action capitalone-bank-panel"><a href="https://verified.capitalone.com/auth/signin?Product=ENTERPRISE#/welcome" target="_blank">Capital One Banking</a></div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="list-group">
+                                    <div class="list-group-item list-group-item-primary" disabled>Retirment</div>
+                                    <div class="list-group-item list-group-item-action fidelity-panel"><a href="https://digital.fidelity.com/prgw/digital/login/full-page" target="_blank">Fidelity Retirement</a></div>
+                                    <div class="list-group-item list-group-item-action empowerment-panel"><a href="https://participant.empower-retirement.com/participant/#/login" target="_blank">Empower Retirement</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <!-- TODO: Add a custom HTML5/React Calculator -->
+                            </div>
+                            <div class="col-6">
+                                <!-- TODO: Add a custom Stock Ticker List -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-games" role="tabpanel" aria-labelledby="v-pills-games-tab" tabindex="0">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-primary sesame-games-panel" href="https://www.sesamestreet.org/games" target="game-frame">Sesame Street Games</a>
+                                    <a class="btn btn-primary poki-games-panel" href="https://kids.poki.com/" target="game-frame">Poki Games</a>
+                                    <a class="btn btn-primary html5-games-panel" href="https://html5games.com/All-Games" target="game-frame">HTML5 Games</a>
+                                </div>
+                                <div class="row"><iframe height="600" id="game-frame" name="game-frame"></iframe></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-videos" role="tabpanel" aria-labelledby="v-pills-videos-tab" tabindex="0">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="list-group">
+                                    <div class="list-group-item list-group-item-primary" disabled>Videos</div>
+                                    <div class="list-group-item list-group-item-action netflix-panel"><a href="https://www.netflix.com/Kids/" target="_blank">Netflix</a></div>
+                                    <div class="list-group-item list-group-item-action hulu-panel"><a href="https://www.hulu.com/hub/kids" target="_blank">Hulu</a></div>
+                                    <div class="list-group-item list-group-item-action prime-video-panel"><a href="https://www.amazon.com/gp/video/kids" target="_blank">Prime Video</a></div>
+                                    <div class="list-group-item list-group-item-action youtube-panel"><a href="https://www.youtube.com/feed/subscriptions" target="_blank">YouTube</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-canvas" role="tabpanel" aria-labelledby="v-pills-canvas-tab" tabindex="0">
+                        <div id="mainpane">
+                            <div id="animation_button_container"></div>
+                            <canvas id="canvas" class="canvas" width="900" height="500" style="border:thin solid grey"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p>Brinkley Basics &copy; 2025</p>
+        </div>
+    </div>          
+
 </body>
 </html>
