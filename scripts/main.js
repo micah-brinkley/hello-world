@@ -2,6 +2,9 @@
 
 $(document).ready(function () {
 
+    // Activate Games Panel
+    $(".sesame-games-panel")[0].click();
+
     // Canvas Sample
     const canvas = $("#canvas").get(0);
     const ctx = canvas.getContext("2d");

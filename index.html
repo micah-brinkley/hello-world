@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="https://linangdata.com/calculatorEmbed/linangcalc.js"></script>
     <script src="scripts/main.js"></script>
 </head>
 <body>
@@ -37,14 +38,24 @@
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
                         <div class="row">
-                            <div class="col-12 home-panel" height="700">Hello World, Micah here ...</div>
+                            <h6 class="col-12 home-panel" height="100">Hello World, Micah here ...</h6>
                         </div>
-                        <div class="row">
-                            <!-- TODO: Add a custom introduction -->
+                        <div class="row" style="height:80%;">
+                            <div class="col-6 home-news-panel" height="600">
+                                <h3>News</h3>
+                                <iframe src="//rss.bloople.net/?url=https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml&showtitle=false&type=html" style="width:95%;height:100%;"></iframe>
+                            </div>
+                            <div class="col-6 home-weather-panel" height="600">
+                                <h3>Weather</h3>
+                                <a class="weatherwidget-io" href="https://forecast7.com/en/40d11n75d10/19046/" data-label_1="FOXCROFT SQUARE" data-label_2="Jenkintown PA Weather" data-font="Helvetica" data-icons="Climacons Animated" data-theme="original">FOXCROFT SQUARE Jenkintown PA Weather</a>
+                                <script>
+                                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+                                </script>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-billpay" role="tabpanel" aria-labelledby="v-pills-billpay-tab" tabindex="0">
-                        <div class="row"><iframe height="625" src="https://docs.google.com/spreadsheets/d/1S0w-aJbcKjNY5gr7Sk3kZ96YrHoBZ__XbKHIDtOc23s/edit?pli=1#gid=0" style="border:thin grey;"></iframe></div>
+                        <div class="row"><iframe class="billpay-frame" height="675" src="https://docs.google.com/spreadsheets/d/1S0w-aJbcKjNY5gr7Sk3kZ96YrHoBZ__XbKHIDtOc23s/edit?pli=1#gid=0" style="border:thin grey;"></iframe></div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-banking" role="tabpanel" aria-labelledby="v-pills-banking-tab" tabindex="0">
                         <div class="row">
@@ -65,11 +76,17 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
-                                <!-- TODO: Add a custom HTML5/React Calculator -->
+                            <div class="col-6">                               
+                                <div>
+                                    <iframe id="linangcalc" src="https://linangdata.com/calculatorEmbed/embeddable.html?placement=right"
+                                            width="50" height="50" scrolling="auto" frameBorder="0" allowTransparency="true"
+                                            style="border:0;float:left;margin:15px 5px;opacity:1.0;">
+                                    </iframe>
+                                </div>
                             </div>
                             <div class="col-6">
                                 <!-- TODO: Add a custom Stock Ticker List -->
+                                <div class="row"></div>
                             </div>
                         </div>
                     </div>
