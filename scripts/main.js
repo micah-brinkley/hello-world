@@ -5,10 +5,36 @@ $(document).ready(function () {
     // Activate Games Panel
     $(".sesame-games-panel")[0].click();
 
-    // Canvas Sample
+    // Canvas Components
     const canvas = $("#canvas").get(0);
     const ctx = canvas.getContext("2d");
     let animationHandle;
+    let prevCoords = [];
+    let mousePressed = false;
+
+    // Activate Canvas Drawing Interactions
+    $("#canvas").on("mousedown", function (e) {        
+        mousePressed = true;    
+    });
+
+    $("#canvas").on("mousemove", function (e) {
+        if (mousePressed) {
+            ctx.beginPath();
+            prevCoords.length > 0 ? ctx.moveTo(prevCoords[0], prevCoords[1]) : ctx.moveTo(e.offsetX, e.offsetY);
+            ctx.lineTo(e.offsetX, e.offsetY)
+            prevCoords = [e.offsetX, e.offsetY];
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+    });
+        
+    $("#canvas").on("mouseup", function (e) {
+        prevCoords = [];
+        mousePressed = false;        
+    });
+
+    // Canvas Demo
 
     const ball = {
         x: 100,

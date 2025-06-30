@@ -38,19 +38,21 @@
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
                         <div class="row">
-                            <h6 class="col-12 home-panel" height="100">Hello World, Micah here ...</h6>
+                            <h6 class="col-12 home-panel" style="height:50px">Hello World, Micah here ...</h6>
                         </div>
-                        <div class="row" style="height:80%;">
-                            <div class="col-6 home-news-panel" height="600">
-                                <h3>News</h3>
-                                <iframe src="//rss.bloople.net/?url=https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml&showtitle=false&type=html" style="width:95%;height:100%;"></iframe>
-                            </div>
-                            <div class="col-6 home-weather-panel" height="600">
+                        <div class="row" height="600">
+                            <div class="col home-weather-panel" style="height:200px">
                                 <h3>Weather</h3>
                                 <a class="weatherwidget-io" href="https://forecast7.com/en/40d11n75d10/19046/?unit=us" data-label_1="Jenkintown PA" data-label_2="Weather" data-icons="Climacons Animated" data-theme="pure">Jenkintown PA Weather</a>
                                 <script>
                                     !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
                                 </script>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col home-news-panel" style="height:300px">
+                                <h3>News</h3>
+                                <iframe src="//rss.bloople.net/?url=https%3A%2F%2Frss.nytimes.com%2Fservices%2Fxml%2Frss%2Fnyt%2FHomePage.xml&showtitle=false&type=html" style="width:95%;height:100%;"></iframe>
                             </div>
                         </div>
                     </div>
